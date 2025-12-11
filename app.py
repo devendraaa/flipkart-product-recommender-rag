@@ -41,3 +41,14 @@ def create_app():
 if __name__=="__main__":
     app = create_app()
     app.run(host="0.0.0.0",port=5000,debug=True)
+
+
+# ChatGroq	Use Groq models	Your LLM brain
+# RePhraseQueryRetriever	Improve query → better search	Makes questions smarter
+# create_retrieval_chain	Make RAG pipeline	Connects search + LLM
+# create_stuff_documents_chain	Insert docs into LLM	Gives LLM the context
+# ChatPromptTemplate	Format prompts	Controls conversation style
+# MessagesPlaceholder	Insert history	Memory slot in prompt
+# RunnableWithMessageHistory	Actual conversation memory	Remembers everything
+# ChatMessageHistory	Stores memory	Local memory storage
+# BaseChatMessageHistory	Create custom memory	Foundation class

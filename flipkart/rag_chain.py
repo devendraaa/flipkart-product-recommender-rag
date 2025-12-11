@@ -11,19 +11,20 @@ from flipkart.config import Config
 class RAGChainBuilder:
     def __init__(self,vector_store):
         self.vector_store=vector_store
-        self.model = ChatGroq(model=Config.RAG_MODEL , temperature=0.5)
+        self.model = ChatGroq(model=Config.RAG_MODEL , temperature=0.5) # main brain for llm , groq.
         self.history_store={}
 
-    def _get_history(self,session_id:str) -> BaseChatMessageHistory:
+    def _get_history(self,session_id:str) -> BaseChatMessageHistory: # custom message memory
         if session_id not in self.history_store:
-            self.history_store[session_id] = ChatMessageHistory()
+            self.history_store[session_id] = ChatMessageHistory() # stores memory, local memory storage
         return self.history_store[session_id]
     
     def build_chain(self):
         retriever = self.vector_store.as_retriever(search_kwargs={"k":3})
-
+        # advance prompt format for bots and control conversation style 
         context_prompt = ChatPromptTemplate.from_messages([
             ("system", "Given the chat history and user question, rewrite it as a standalone question."),
+            # insert history to prompt, memory slot in prompt.
             MessagesPlaceholder(variable_name="chat_history", optional=True), 
             ("human", "{input}")  
         ])
@@ -82,22 +83,22 @@ QUESTION:
     ("human", "{input}")
             ])
 
-
+        # improve query or make query smarter , ex : complete query if user enter incomplete query.
         history_aware_retriever = RePhraseQueryRetriever.from_llm(
             llm=self.model,
             retriever=retriever,
             prompt=context_prompt
         )
 
-
+        # insert document into llm , or gives llm the context
         question_answer_chain = create_stuff_documents_chain(
             self.model , qa_prompt
         )
-
+        # Make RAG Pipeline, connect search + llm.
         rag_chain = create_retrieval_chain(
             history_aware_retriever,question_answer_chain
         )
-
+        # Actual Conversation memory, Remember Everything.
         return RunnableWithMessageHistory(
             rag_chain,
             self._get_history,
