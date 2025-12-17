@@ -33,21 +33,21 @@ The system combines **vector-based retrieval** with **LLM reasoning** to generat
 
 ## 🏗️ Architecture
 
-User
-↓
-Flask Web UI
-↓
-LangChain RAG Pipeline
-├── Query Rephraser (History-aware)
-├── AstraDB Vector Store
-├── Context Retrieval
-└── Groq LLM (Response Generation)
-↓
-Dockerized Application
-↓
-Kubernetes (GCP / Minikube)
-↓
-Prometheus (Monitoring & Metrics)
+**User**  
+↓  
+**Flask Web UI**  
+↓  
+**LangChain RAG Pipeline**  
+- Query Rephraser (History-aware)  
+- AstraDB Vector Store  
+- Context Retrieval  
+- Groq LLM (Response Generation)  
+↓  
+**Dockerized Application**  
+↓  
+**Kubernetes (GCP / Minikube)**  
+↓  
+**Prometheus (Monitoring & Metrics)**
 
 
 ---
