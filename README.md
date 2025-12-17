@@ -1,6 +1,6 @@
 # 🛒 Flipkart Product Recommender (RAG-based AI System)
 
-> An **end-to-end Retrieval-Augmented Generation (RAG)** product recommendation system for Flipkart-style e-commerce data, built with **LangChain, Groq LLM, and AstraDB**, and deployed using **Docker & Kubernetes** with **production-grade monitoring**.
+> An **end-to-end Retrieval-Augmented Generation (RAG)** product recommendation system for Flipkart-style e-commerce data, built with **LangChain, Groq LLM, and AstraDB**, and deployed using **Docker & Kubernetes** with **production-grade monitoring and visualization**.
 
 ---
 
@@ -30,7 +30,6 @@ The system combines **vector-based retrieval** with **LLM reasoning** to generat
 
 ---
 
-
 ## 🏗️ Architecture
 
 **User**  
@@ -47,8 +46,9 @@ The system combines **vector-based retrieval** with **LLM reasoning** to generat
 ↓  
 **Kubernetes (GCP / Minikube)**  
 ↓  
-**Prometheus (Monitoring & Metrics)**
-
+**Prometheus (Metrics Collection)**  
+↓  
+**Grafana (Dashboards & Visualization)**
 
 ---
 
@@ -70,7 +70,8 @@ The system combines **vector-based retrieval** with **LLM reasoning** to generat
 - **kubectl**
 
 ### Observability
-- **Prometheus** – application monitoring
+- **Prometheus** – metrics collection  
+- **Grafana** – dashboards & visualization  
 
 ---
 
@@ -82,7 +83,7 @@ The system combines **vector-based retrieval** with **LLM reasoning** to generat
 - ⚡ Low-latency inference using Groq  
 - 🐳 Fully containerized with Docker  
 - ☸️ Scalable Kubernetes deployment  
-- 📊 Production-grade monitoring  
+- 📊 Production-grade monitoring & visualization  
 
 ---
 
@@ -104,7 +105,7 @@ Designed with real-world deployment in mind:
 - Stateless containers  
 - Scalable vector retrieval  
 - Kubernetes orchestration  
-- Observability-first approach  
+- Observability-first approach (metrics + dashboards)  
 - Clean separation of RAG components  
 
 ---
@@ -115,7 +116,7 @@ Designed with real-world deployment in mind:
 - Building **history-aware conversational AI**  
 - Integrating **LLMs with vector databases**  
 - Deploying AI systems on **Docker & Kubernetes**  
-- Monitoring AI workloads using **Prometheus**  
+- Monitoring AI workloads using **Prometheus & Grafana**  
 - Debugging real production issues  
 
 ---
@@ -124,7 +125,7 @@ Designed with real-world deployment in mind:
 
 - Real-time data ingestion (APIs / scraping)  
 - RAG evaluation (RAGAS)  
-- Grafana dashboards  
+- Advanced Grafana dashboards  
 - Improved UI/UX  
 - Multi-model routing  
 
@@ -145,9 +146,7 @@ This project demonstrates:
 - LLM engineering  
 - RAG system design  
 - Cloud-native deployment  
-- Production observability  
+- Production observability (metrics + dashboards)  
 - End-to-end AI system thinking  
 
-> *A realistic example of how modern AI applications are built and deployed in industry.*
-
-
+> *A realistic example of how modern AI applications are built, deployed, and monitored in industry.*
