@@ -1,190 +1,153 @@
-🛒 Flipkart Product Recommender (RAG-based AI System)
+# 🛒 Flipkart Product Recommender (RAG-based AI System)
 
-An end-to-end Retrieval-Augmented Generation (RAG) based product recommendation system for Flipkart-style e-commerce data.
-The system leverages LangChain, Groq LLM, and AstraDB Vector Store to provide context-aware, history-aware, and accurate product recommendations, deployed using Docker and Kubernetes with production-grade monitoring.
+> An **end-to-end Retrieval-Augmented Generation (RAG)** product recommendation system for Flipkart-style e-commerce data, built with **LangChain, Groq LLM, and AstraDB**, and deployed using **Docker & Kubernetes** with **production-grade monitoring**.
 
-🚀 Problem Statement
+---
 
-E-commerce platforms like Flipkart host millions of products and reviews.
-Traditional keyword-based search often fails to deliver context-aware, personalized, and conversational recommendations.
+## 🚀 Problem Statement
 
-This project addresses that gap by building a RAG-powered AI recommender that:
+E-commerce platforms host millions of products and reviews.  
+Traditional keyword-based search often fails to deliver:
 
-understands user intent,
+- Context-aware results  
+- Personalized recommendations  
+- Conversational search experience  
 
-retrieves relevant product knowledge,
+This project solves that problem using **RAG + LLMs**.
 
-and generates human-like, helpful recommendations using LLMs.
+---
 
+## 🧠 Solution Overview
 
-🧠 Solution Overview
+The system combines **vector-based retrieval** with **LLM reasoning** to generate intelligent product recommendations.
 
-This system combines vector-based retrieval with LLM reasoning to recommend products intelligently.
+### High-level Flow:
+1. User submits a query  
+2. Query is rewritten using a **history-aware retriever**  
+3. Relevant product data is fetched from **AstraDB Vector Store**  
+4. Retrieved context is injected into **Groq LLM**  
+5. LLM generates concise, creative, and grounded responses  
 
-High-level flow:
-
-User submits a query (e.g., “Best headphones under ₹2000 with good bass”)
-
-Query is rewritten using history-aware retriever
-
-Relevant product data is fetched from AstraDB Vector Store
-
-Retrieved context is injected into Groq LLM
-
-LLM generates concise, creative, and grounded recommendations
+---
 
 
-🏗️ Architecture
+## 🏗️ Architecture
 
 User
-  ↓
+↓
 Flask Web UI
-  ↓
+↓
 LangChain RAG Pipeline
-  ├── Query Rephraser (History-aware)
-  ├── AstraDB Vector Store (Embeddings)
-  ├── Context Retrieval
-  └── Groq LLM (Response Generation)
-  ↓
+├── Query Rephraser (History-aware)
+├── AstraDB Vector Store
+├── Context Retrieval
+└── Groq LLM (Response Generation)
+↓
 Dockerized Application
-  ↓
-Kubernetes (GCP)
-  ↓
+↓
+Kubernetes (GCP / Minikube)
+↓
 Prometheus (Monitoring & Metrics)
 
 
-🛠️ Tech Stack
-AI / LLM
+---
 
-Groq LLM – ultra-fast inference
+## 🛠️ Tech Stack
 
-LangChain – RAG orchestration
+### AI / LLM
+- **Groq LLM** – ultra-fast inference  
+- **LangChain** – RAG orchestration  
+- **HuggingFace Embeddings**
 
-HuggingFace Embeddings – vector generation
+### Data & Retrieval
+- **AstraDB Vector Store**
+- **History-aware retriever**
 
-Data & Retrieval
+### Backend & Deployment
+- **Flask**
+- **Docker**
+- **Kubernetes (Minikube / GCP)**
+- **kubectl**
 
-AstraDB Vector Store – scalable vector search
+### Observability
+- **Prometheus** – application monitoring
 
-History-aware Retriever – context preservation
+---
 
-Backend & Deployment
+## ✨ Key Features
 
-Flask – web application
+- 🔍 RAG-based product recommendations  
+- 🧠 History-aware conversational retrieval  
+- ✍️ Creative, LLM-generated product summaries  
+- ⚡ Low-latency inference using Groq  
+- 🐳 Fully containerized with Docker  
+- ☸️ Scalable Kubernetes deployment  
+- 📊 Production-grade monitoring  
 
-Docker – containerization
+---
 
-Kubernetes (Minikube / GCP) – orchestration
+## 📌 Example Use Cases
 
-kubectl – cluster management
+- “Best Bluetooth headphones under ₹3000”  
+- “Compare these with Sony models”  
+- “Which one has better battery life?”  
+- “Is it good for gaming?”  
 
-Observability
+➡ The system **remembers conversation context** for follow-up queries.
 
-Prometheus – application monitoring
+---
 
-Custom metrics – request count, latency
+## 📈 Production Readiness
 
-Version Control
+Designed with real-world deployment in mind:
 
-GitHub
+- Stateless containers  
+- Scalable vector retrieval  
+- Kubernetes orchestration  
+- Observability-first approach  
+- Clean separation of RAG components  
 
+---
 
-✨ Key Features
+## 🧠 What I Learned
 
-🔍 RAG-based product recommendations
+- Designing **real-world RAG pipelines**  
+- Building **history-aware conversational AI**  
+- Integrating **LLMs with vector databases**  
+- Deploying AI systems on **Docker & Kubernetes**  
+- Monitoring AI workloads using **Prometheus**  
+- Debugging real production issues  
 
-🧠 History-aware conversational retrieval
+---
 
-✍️ Creative, LLM-generated product summaries
+## 🔮 Future Improvements
 
-⚡ Low-latency responses using Groq
+- Real-time data ingestion (APIs / scraping)  
+- RAG evaluation (RAGAS)  
+- Grafana dashboards  
+- Improved UI/UX  
+- Multi-model routing  
 
-🐳 Fully containerized with Docker
+---
 
-☸️ Kubernetes-based scalable deployment
+## 👤 Author
 
-📊 Production monitoring using Prometheus
+**Devendra Umesh Chavan**  
+**AI Engineer**  
+Founder – *Saavo Avinya Pvt Ltd*
 
-🔄 Modular, extensible architecture
+---
 
-
-📌 Example Use Cases
-
-“Best Bluetooth headphones under ₹3000”
-
-“Compare these with Sony models”
-
-“Which one has better battery life?”
-
-“Is it good for gaming?”
-
-The system remembers conversation context and responds accordingly.
-
-
-📈 Production Readiness
-
-This project is designed with real-world deployment considerations:
-
-Stateless application containers
-
-Vector database for scalable retrieval
-
-Kubernetes orchestration
-
-Monitoring for performance and reliability
-
-Clean separation of ingestion, retrieval, and generation layers
-
-
-🧠 What I Learned
-
-Designing and implementing RAG pipelines for real-world data
-
-Building history-aware conversational AI systems
-
-Integrating LLMs with vector databases
-
-Deploying AI systems using Docker & Kubernetes
-
-Monitoring AI applications using Prometheus
-
-Debugging real-world deployment issues (image pull errors, cluster configs)
-
-Conversation history is preserved for follow-up questions
-
-
-🔮 Future Improvements
-
-Add real-time data ingestion (scraping / APIs)
-
-Implement RAG evaluation (RAGAS)
-
-Add Grafana dashboards
-
-Improve UI/UX
-
-Multi-model routing for cost optimization
-
-
-👤 Author
-
-Devendra Umesh Chavan
-AI Engineer
-Founder – Saavo Avinya Pvt Ltd
-
-
-⭐ Why This Project Matters
+## ⭐ Why This Project Matters
 
 This project demonstrates:
 
-LLM engineering
+- LLM engineering  
+- RAG system design  
+- Cloud-native deployment  
+- Production observability  
+- End-to-end AI system thinking  
 
-RAG system design
+> *A realistic example of how modern AI applications are built and deployed in industry.*
 
-Cloud-native deployment
 
-Production observability
-
-End-to-end AI application thinking
-
-It reflects how modern AI systems are built and deployed in industry, not just demos.
