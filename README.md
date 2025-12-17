@@ -16,6 +16,7 @@ retrieves relevant product knowledge,
 
 and generates human-like, helpful recommendations using LLMs.
 
+
 🧠 Solution Overview
 
 This system combines vector-based retrieval with LLM reasoning to recommend products intelligently.
@@ -31,6 +32,7 @@ Relevant product data is fetched from AstraDB Vector Store
 Retrieved context is injected into Groq LLM
 
 LLM generates concise, creative, and grounded recommendations
+
 
 🏗️ Architecture
 
@@ -49,6 +51,7 @@ Dockerized Application
 Kubernetes (GCP)
   ↓
 Prometheus (Monitoring & Metrics)
+
 
 🛠️ Tech Stack
 AI / LLM
@@ -85,6 +88,7 @@ Version Control
 
 GitHub
 
+
 ✨ Key Features
 
 🔍 RAG-based product recommendations
@@ -103,6 +107,7 @@ GitHub
 
 🔄 Modular, extensible architecture
 
+
 📌 Example Use Cases
 
 “Best Bluetooth headphones under ₹3000”
@@ -114,6 +119,7 @@ GitHub
 “Is it good for gaming?”
 
 The system remembers conversation context and responds accordingly.
+
 
 📈 Production Readiness
 
@@ -129,6 +135,7 @@ Monitoring for performance and reliability
 
 Clean separation of ingestion, retrieval, and generation layers
 
+
 🧠 What I Learned
 
 Designing and implementing RAG pipelines for real-world data
@@ -143,8 +150,8 @@ Monitoring AI applications using Prometheus
 
 Debugging real-world deployment issues (image pull errors, cluster configs)
 
-
 Conversation history is preserved for follow-up questions
+
 
 🔮 Future Improvements
 
@@ -158,11 +165,13 @@ Improve UI/UX
 
 Multi-model routing for cost optimization
 
+
 👤 Author
 
 Devendra Umesh Chavan
 AI Engineer
 Founder – Saavo Avinya Pvt Ltd
+
 
 ⭐ Why This Project Matters
 
